@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<title>Coal Power Plants </title>
+
+<link rel="shortcut icon" href="greenenergy.png">
+
+<!-- the background color is the color surrounding the worksheet-->
+
+ <style>
+
+body {
+	background-color: #A3D1FF;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+h4 {
+  margin-left: 20px;
+}
+
+div#left {
+    width: 120px;
+    float: left;  
+    margin: 30px;  
+    	font-size: 20px;
+ }
+
+</style>
+
+<style>
+rect {
+  fill: none;
+  pointer-events: all;
+}
+
+.node {
+  fill: #000;
+}
+
+.cursor {
+  fill: none;
+  stroke: brown;
+  pointer-events: none;
+}
+
+.link {
+  stroke: #999;
+}
+
+</style>
+
+
+<!-- I downloaded TwentyTen Wordpress theme - that is what the mathjax css is based on - and found the css for the show/hide buttons using the inspect element feature, then copied it here-->
+<style type="text/css" id="input">
+#content input,
+#content textarea {
+  color: #F2072E;
+  font-weight: bold;
+}
+
+</style>
+
+</head>
+
+
+
+<body> 
+     <h1 class="entry-title">Coal Fired Power Plants</h1>
+     <h4><i>Click on the screen to insert a data point, position circle between two data points to connect them.  Build your own graph!  Click on the countries at left to access the energy math FRQs.</i></h4>
+<br>
+
+<div id="left">
+<br/><br/>
+<a target="_blank" href="COALBrazil.html">Brazil</a>
+<br/><br/>
+<br/><br/>
+<a target="_blank" href="COALCanada.html">Canada</a>
+<br/><br/>
+<br/><br/>
+<a target="_blank" href="COALIndia.html">India</a>
+<br/><br/>
+<br/><br/>
+<a target="_blank" href="COALSouthAfrica.html">South Africa</a>
+<br/><br/>
+<br/><br/>
+<a target="_blank" href="COALUSA.html">USA</a>
+<br/><br/>
+<br/><br/>
+
+</div>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 1000,
+    height = 500;
+    border=3;
+    bordercolor='black';
+
+var fill = d3.scale.category20();
+
+var force = d3.layout.force()
+    .size([width, height])
+    .nodes([{}]) // initialize with a single node
+    .linkDistance(30)
+    .charge(-60)
+    .on("tick", tick);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("border",border)
+    .on("mousemove", mousemove)
+    .on("mousedown", mousedown);
+
+var borderPath = svg.append("rect")
+	.attr("x", 0)
+    .attr("y", 0)
+    .attr("width", width)
+    .attr("height", height)
+    .style("stroke", bordercolor)
+    .style("fill", "none")
+    .style("stroke-width", border);;
+
+var nodes = force.nodes(),
+    links = force.links(),
+    node = svg.selectAll(".node"),
+    link = svg.selectAll(".link");
+
+var cursor = svg.append("circle")
+    .attr("r", 30)
+    .attr("transform", "translate(-100,-100)")
+    .attr("class", "cursor");
+
+restart();
+
+function mousemove() {
+  cursor.attr("transform", "translate(" + d3.mouse(this) + ")");
+}
+
+function mousedown() {
+  var point = d3.mouse(this),
+      node = {x: point[0], y: point[1]},
+      n = nodes.push(node);
+
+  // add links to any nearby nodes
+  nodes.forEach(function(target) {
+    var x = target.x - node.x,
+        y = target.y - node.y;
+    if (Math.sqrt(x * x + y * y) < 30) {
+      links.push({source: node, target: target});
+    }
+  });
+
+  restart();
+}
+
+function tick() {
+  link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+}
+
+function restart() {
+  link = link.data(links);
+
+  link.enter().insert("line", ".node")
+      .attr("class", "link");
+
+  node = node.data(nodes);
+
+  node.enter().insert("circle", ".cursor")
+      .attr("class", "node")
+      .attr("r", 5)
+      .call(force.drag);
+
+  force.start();
+}
+
+</script>
+<br></br>
+
+</body>
+<br>
+
+<p style="font-size:small; color:gray; text-align:center;">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">APES Practice for Energy Math</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.physics.drexel.edu/~tim" property="cc:attributionName" rel="cc:attributionURL">Jenny Hoffman</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br/>
+This software incorporates the MathJax TEX and CSS libraries, the JQuery
+Google API, and D3.js.
+<br>"Build Your Won Graph" interactive is adapted from http://bl.ocks.org/mbostock/929623 (Copyright (c) 2010-2014, Michael Bostock. All rights reserved).
+</html>
