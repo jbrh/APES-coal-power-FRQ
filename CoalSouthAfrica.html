@@ -24,26 +24,19 @@
 body.custom-background { background-image:url('backgroundforCOAL2.jpg');
  }
 
-</style>
-
-<style>
 #content {
 margin: 0 auto;
-}
-</style>
-
-<style>
-#site-title {
-    margin: 0;
-    width: 600px;
 }
 </style>
 
 
 <style type="text/css" id="math-header-css">
 .math-header, .section-header {
+    margin-left: 40px;
+    display: inline-block;
     background: #afeb10;
     border-top: 1px solid #ccc;
+    border-radius: 15px;
     color: ##FFBF00;
     font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
     font-weight: bold;
@@ -60,6 +53,61 @@ margin: 0 auto;
 #content textarea {
   color: #F2072E;
   font-weight: bold;
+}
+
+.writing {
+    width: 600px;
+    border-radius: 15px;
+    margin-left: 40px;
+    background: white;
+    opacity: 0.7;
+    display: inline-block;
+    padding: 10px;
+}
+
+.list {
+    line-height: 30px;
+    background: white;
+    opacity: 0.7;
+    width: 600px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+#topitem {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#bottomitem {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.showhideall {
+    background: white;
+    opacity: 0.7;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    margin-left: 300px;
+
+}
+
+input {
+  margin-left: 40px;
+}
+
+.end {
+    background: white;
+    border-radius: 15px;
+    width: 800px;
+    margin: 0 auto;
+    opacity: 0.7;
+    padding: 10px;
+
+
 }
 
 </style>
@@ -114,28 +162,15 @@ function answertoproblem (number) {
 
 <body class="page page-id-612 page-child parent-pageid-13 page-template-default custom-background">
 
-<div id="wrapper" class="hfeed">
-  <div id="header">
-    <div id="masthead">
+<br>
 
-	<div id="branding" role="banner">
-           <div id="site-title">
-        	<span>AIS APES 2014 -- Practice for Energy Math</span>
- 	   </div>
-	  <div id="site-description"></div><!--I moved the Practice for Energy Math to the site title above think it looks cleaner-->
-        </div>
-       </div><!-- #branding -->
-     </div> 
-   
-    <div class="clear"></div>
-<br/><br/>
 <div id="main">
  <div id="container">
   <div id="content" role="main">
     <div id="post-612" class="post-612 page type-page status-publish hentry">
 
 <div class="showhide" id="showhide">
-     <h1 class="entry-title">Coal-Fired Power Plant</h1>
+     <h1 class="writing">Coal-Fired Power Plant</h1>
 <br/>
 <script>
 
@@ -153,19 +188,22 @@ var answertoproblem4 = Math.round(answertoproblem1*1.2/sulfurinmillionbtus);
 </script>
 
   
-<p>A large, coal-fired electric power plant in <b><script>document.write(countryis)</script></b> produces <b><script>document.write(coalplantcapacity.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> kWh of electricity each day.  Assume that an input of <b><script>document.write(btusin.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> BTUs of heat is required to produce an output of <b>1.0</b> kWh of electricity.</p>
+<p class ="writing">A large, coal-fired electric power plant in <b><script>document.write(countryis)</script></b> produces <b><script>document.write(coalplantcapacity.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> kWh of electricity each day.  Assume that an input of <b><script>document.write(btusin.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> BTUs of heat is required to produce an output of <b>1.0</b> kWh of electricity.</p>
+<br>
 
-<p>Showing all steps in your claculations, determine the number of:</p>
+<p class="writing">Showing all steps in your claculations, determine the number of:</p>
   
  <br/><br/>
 
 <div class="math-header">BTUs of heat needed to generate the electricity produced by the power plant each day.</div>
+<br>
 
 
 <input type="submit" name="hideh2" value="Hide Solution" id="hideh2" /> <input type="submit" name="showh2" value="Show Solutions" id="showh2" />
+<br>
 
 <br/><br/>
-<div class="showhide2" id="showhide2">
+<div class="showhideall" id="showhide2">
 
  <script>
   document.write("\\[ \\left("+coalplantcapacity.toExponential()+"\\frac{\\ kWh}{\\ day}\\right) \\times \\left("+btusin.toExponential()+"\\frac{\\ BTUs}{\\ kWh}\\right) =\\ "+answertoproblem1.toExponential()+"\\frac{\\ BTUs}{\\ day}\\]");
@@ -190,11 +228,12 @@ $('#hideh2').click(function() {
 <br/><br/>
 
 <div class="math-header">Pounds of coal consumed by the power plant each day, assuming that one pound of coal yields <b><script>document.write(poundcoalbtus.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> BTUs.</div>
+<br>
 
 <input type="submit" name="hideh3" value="Hide Solution" id="hideh3" /> <input type="submit" name="showh3" value="Show Solutions" id="showh3" />
 
 <br/><br/>
-<div class="showhide3" id="showhide3">
+<div class="showhideall" id="showhide3">
 
   
  <script>
@@ -221,11 +260,12 @@ $('#hideh3').click(function() {
 
   
 <div class="math-header">Pounds of sulfur released by the power plant each day, assuming that the coal contains one percent sulfur by weight.</div>
+<br>
 
 <input type="submit" name="hideh4" value="Hide Solution" id="hideh4" /> <input type="submit" name="showh4" value="Show Solutions" id="showh4" />
 
 <br/><br/>
-<div class="showhide4" id="showhide4">
+<div class="showhideall" id="showhide4">
 
 <script>
  document.write("\\[ \\left("+answertoproblem2.toExponential()+"\\frac{\\ lbs \\ coal}{\\ day}\\right) \\times \\left("+poundssulfurpoundcoal.toExponential()+"\\frac{\\ lbs \\ sulfur}{\\ lb \\ coal}\\right)  =\\ "+answertoproblem3.toExponential()+"\\frac{\\ lbs \\ sulfur}{\\ day}\\]");
@@ -250,12 +290,13 @@ $('#hideh4').click(function() {
 <br/><br/>
 
   
-<div class="math-header">The EPA standard for coal-fired power plants such as this one is that no more than <b>1.2</b> pounds of sulfur be emitted per <b>1.0</b> million BTUs of heat generated. Using the results in part (a), determine whether the power plant meets the EPA standard.</div>
+<div class="math-header">The EPA standard for coal-fired power plants such as this one is that no more than <b>1.2</b> pounds of sulfur be emitted per <b>1.0</b> million BTUs of heat <br>generated. Using the results in part (a), determine whether the power plant meets the EPA standard.</div>
 
 <input type="submit" name="hideh5" value="Hide Solution" id="hideh5" /> <input type="submit" name="showh5" value="Show Solutions" id="showh5" />
+<br>
 
 <br/><br/>
-<div class="showhide5" id="showhide5">
+<div class="showhideall" id="showhide5">
   
 <script>
   document.write("\\[ \\left("+answertoproblem1.toExponential()+"\\frac{\\ BTUs}{\\ day}\\right) \\times \\left(1.2 \\frac{\\ lbs \\ sulfur}{\\ "+sulfurinmillionbtus.toExponential()+"\\ BTUs}\\right) =\\ "+answertoproblem4.toExponential()+"\\frac{\\ lbs\\ sulfur}{\\ day}\\]");
@@ -281,7 +322,7 @@ $('#hideh5').click(function() {
  <br/><br/>
 
 </body>
-<p style="font-size:xx-small; color:gray; text-align:center;">
+<p class="end" style="font-size:small; color:dark gray; text-align:center;">
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">APES Practice for Energy Math</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.physics.drexel.edu/~tim" property="cc:attributionName" rel="cc:attributionURL">Jenny Hoffman</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
 <br/>
 This software incorporates the MathJax TEX and CSS libraries and JQuery
