@@ -22,10 +22,15 @@ h1 {
 }
 
 h4 {
+  max-width: 900px;
   margin-left: 20px;
 }
 
-div#left {
+a {
+  text-decoration: none;
+}
+
+#left {
     width: 120px;
     float: left;  
     margin: 30px;  
@@ -74,10 +79,8 @@ rect {
 <body> 
      <h1 class="entry-title">Coal Fired Power Plants</h1>
      <h4><i>Click on the screen to insert a data point, position circle between two data points to connect them.  Build your own graph!  Click on the countries at left to access the energy math FRQs.</i></h4>
-<br>
 
 <div id="left">
-<br/><br/>
 <a target="_blank" href="COALBrazil.html">Brazil</a>
 <br/><br/>
 <br/><br/>
@@ -97,10 +100,10 @@ rect {
 </div>
 
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var width = 1000,
+var width = 800,
     height = 500;
     border=3;
     bordercolor='black';
@@ -193,7 +196,7 @@ function restart() {
 <br></br>
 
 </body>
-<br>
+<br><br>
 
 <p style="font-size:small; color:gray; text-align:center;">
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">APES Practice for Energy Math</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.physics.drexel.edu/~tim" property="cc:attributionName" rel="cc:attributionURL">Jenny Hoffman</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
