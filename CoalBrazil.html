@@ -9,28 +9,25 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="shortcut icon" href="greenenergy.png">
-<link rel="stylesheet" type="text/css" media="all" href="http://www.mathjax.org/wp-content/themes/mathjax/style.css" />
+<link rel="stylesheet" type="text/css" href="styles.css">
 
-<script type='text/javascript' src='http://www.mathjax.org/wp-content/plugins/syntax-highlighter-mt/scripts/shCore.js'></script>
-<script type='text/javascript' src='http://www.mathjax.org/wp-content/plugins/syntax-highlighter-mt/scripts/shAutoloader.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous">
+</script>
 
-<link type='text/css' rel='stylesheet' href='http://www.mathjax.org/wp-content/plugins/syntax-highlighter-mt/styles/shCore.css'/>
-<link type='text/css' rel='stylesheet' href='http://www.mathjax.org/wp-content/plugins/syntax-highlighter-mt/styles/shThemeDefault.css'/>
 
-<!-- the background color is the color surrounding the worksheet-->
+<style type="text/css" id="math-header-css">
 
-<style type="text/css" id="custom-background-css">
-body.custom-background { background-image:url('backgroundforCOAL2.jpg');
+body{ 
+  background-image:url('backgroundforCOAL2.jpg');
  }
 
 #content {
 margin: 0 auto;
 }
-</style>
 
-
-<style type="text/css" id="math-header-css">
 .math-header, .section-header {
     margin-left: 40px;
     display: inline-block;
@@ -45,10 +42,6 @@ margin: 0 auto;
     text-shadow: 0 0 0
 }
 
-</style>
-
-<!-- I downloaded TwentyTen Wordpress theme - that is what the mathjax css is based on - and found the css for the show/hide buttons using the inspect element feature, then copied it here-->
-<style type="text/css" id="input">
 #content input,
 #content textarea {
   color: #F2072E;
@@ -114,13 +107,11 @@ input {
 </style>
 
 
-<script>
-$(document).ready(function() {
-  $('showhide').hide();
-});
-</script>
-
 <script type="text/javascript">
+
+$(document).ready(function() {
+  $('.showhideall').hide();
+});
 
 /*
  * Returns a random number between min and max
@@ -143,6 +134,17 @@ function answertoproblem (number) {
     return Math.round();
 }
 
+var countryis = "Brazil";
+var coalplantcapacity = 1.2e+7;
+var btusin = 1.0e+4;
+var poundcoalbtus = 5.0e+3;
+var poundssulfurpoundcoal = 1.0e-2;
+var sulfurinmillionbtus = 1.0e+6;
+var answertoproblem1 = (coalplantcapacity*btusin);
+var answertoproblem2 = (answertoproblem1/poundcoalbtus);
+var answertoproblem3 = (answertoproblem2*0.01);
+var answertoproblem4 = Math.round(answertoproblem1*1.2/sulfurinmillionbtus);
+
 </script>
 
 <script type="text/x-mathjax-config">
@@ -161,32 +163,10 @@ function answertoproblem (number) {
 
 
 
-<body class="page page-id-612 page-child parent-pageid-13 page-template-default custom-background">
-
-<br>
-
-<div id="main">
- <div id="container">
-  <div id="content" role="main">
-    <div id="post-612" class="post-612 page type-page status-publish hentry">
-
-<div class="showhide" id="showhide">
-     <h1 class="writing">Coal-Fired Power Plant</h1>
+<body>
+  <div id="content">
+  <h1 class="writing">Coal-Fired Power Plant</h1>
 <br/>
-<script>
-  
-var countryis = "Brazil";
-var coalplantcapacity = 1.2e+7;
-var btusin = 1.0e+4;
-var poundcoalbtus = 5.0e+3;
-var poundssulfurpoundcoal = 1.0e-2;
-var sulfurinmillionbtus = 1.0e+6;
-var answertoproblem1 = (coalplantcapacity*btusin);
-var answertoproblem2 = (answertoproblem1/poundcoalbtus);
-var answertoproblem3 = (answertoproblem2*0.01);
-var answertoproblem4 = Math.round(answertoproblem1*1.2/sulfurinmillionbtus);
- 
-</script>
 
   
 <p class="writing">A large, coal-fired electric power plant in <b><script>document.write(countryis)</script></b> produces <b><script>document.write(coalplantcapacity.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> kWh of electricity each day.  Assume that an input of <b><script>document.write(btusin.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> BTUs of heat is required to produce an output of <b>1.0</b> kWh of electricity.</p>
@@ -199,11 +179,10 @@ var answertoproblem4 = Math.round(answertoproblem1*1.2/sulfurinmillionbtus);
 <div class="math-header">BTUs of heat needed to generate the electricity produced by the power plant each day.</div>
 <br>
 
-
-<input type="submit" name="hideh2" value="Hide Solution" id="hideh2" /> <input type="submit" name="showh2" value="Show Solutions" id="showh2" />
+<input type="button" class="show_hide1" value="Show answer" /> 
 
 <br/><br/>
-<div class="showhideall" id="showhide2">
+<div class="showhideall" id="showhide1">
 
  <script>
   document.write("\\[ \\left("+coalplantcapacity.toExponential()+"\\frac{\\ kWh}{\\ day}\\right) \\times \\left("+btusin.toExponential()+"\\frac{\\ BTUs}{\\ kWh}\\right) =\\ "+answertoproblem1.toExponential()+"\\frac{\\ BTUs}{\\ day}\\]");
@@ -213,15 +192,9 @@ var answertoproblem4 = Math.round(answertoproblem1*1.2/sulfurinmillionbtus);
 </div>
 <script>
 
-$('#showhide2').hide(2600, function() {});
-
-
-$('#showh2').click(function() {
-  $('#showhide2').show('slow', function() {});
-});
-
-$('#hideh2').click(function() {
-  $('#showhide2').hide('slow', function() {});
+$('.show_hide1').click(function(){
+    $("#showhide1").toggle( "slow");
+    $(this).val( $(this).val() == 'Show answer' ? 'Hide answer' : 'Show answer' );
 });
 </script>
 
@@ -230,10 +203,10 @@ $('#hideh2').click(function() {
 <div class="math-header">Pounds of coal consumed by the power plant each day, assuming that one pound of coal yields <b><script>document.write(poundcoalbtus.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))</script></b> BTUs.</div>
 <br>
 
-<input type="submit" name="hideh3" value="Hide Solution" id="hideh3" /> <input type="submit" name="showh3" value="Show Solutions" id="showh3" />
+<input type="button" class="show_hide2" value="Show answer" /> 
 
 <br/><br/>
-<div class="showhideall" id="showhide3">
+<div class="showhideall" id="showhide2">
 
   
  <script>
@@ -244,15 +217,9 @@ $('#hideh2').click(function() {
   </div>
   <script>
 
-$('#showhide3').hide(2600, function() {});
-
-
-$('#showh3').click(function() {
-  $('#showhide3').show('slow', function() {});
-});
-
-$('#hideh3').click(function() {
-  $('#showhide3').hide('slow', function() {});
+$('.show_hide2').click(function(){
+    $("#showhide2").toggle( "slow");
+    $(this).val( $(this).val() == 'Show answer' ? 'Hide answer' : 'Show answer' );
 });
 </script>
   
@@ -262,10 +229,10 @@ $('#hideh3').click(function() {
 <div class="math-header">Pounds of sulfur released by the power plant each day, assuming that the coal contains one percent sulfur by weight.</div>
 <br>
 
-<input type="submit" name="hideh4" value="Hide Solution" id="hideh4" /> <input type="submit" name="showh4" value="Show Solutions" id="showh4" />
+<input type="button" class="show_hide3" value="Show answer" />
 
 <br/><br/>
-<div class="showhideall" id="showhide4">
+<div class="showhideall" id="showhide3">
 
 <script>
  document.write("\\[ \\left("+answertoproblem2.toExponential()+"\\frac{\\ lbs \\ coal}{\\ day}\\right) \\times \\left("+poundssulfurpoundcoal.toExponential()+"\\frac{\\ lbs \\ sulfur}{\\ lb \\ coal}\\right)  =\\ "+answertoproblem3.toExponential()+"\\frac{\\ lbs \\ sulfur}{\\ day}\\]");
@@ -275,15 +242,9 @@ $('#hideh3').click(function() {
 
   <script>
 
-$('#showhide4').hide(2600, function() {});
-
-
-$('#showh4').click(function() {
-  $('#showhide4').show('slow', function() {});
-});
-
-$('#hideh4').click(function() {
-  $('#showhide4').hide('slow', function() {});
+$('.show_hide3').click(function(){
+    $("#showhide3").toggle( "slow");
+    $(this).val( $(this).val() == 'Show answer' ? 'Hide answer' : 'Show answer' );
 });
 </script>
   
@@ -293,10 +254,10 @@ $('#hideh4').click(function() {
 <div class="math-header">The EPA standard for coal-fired power plants such as this one is that no more than <b>1.2</b> pounds of sulfur be emitted per <b>1.0</b> million BTUs of heat <br>generated. Using the results in part (a), determine whether the power plant meets the EPA standard.</div>
 <br>
 
-<input type="submit" name="hideh5" value="Hide Solution" id="hideh5" /> <input type="submit" name="showh5" value="Show Solutions" id="showh5" />
+<input type="button" class="show_hide4" value="Show answer" />
 
 <br/><br/>
-<div class="showhideall" id="showhide5">
+<div class="showhideall" id="showhide4">
   
 <script>
   document.write("\\[ \\left("+answertoproblem1.toExponential()+"\\frac{\\ BTUs}{\\ day}\\right) \\times \\left(1.2 \\frac{\\ lbs \\ sulfur}{\\ "+sulfurinmillionbtus.toExponential()+"\\ BTUs}\\right) =\\ "+answertoproblem4.toExponential()+"\\frac{\\ lbs\\ sulfur}{\\ day}\\]");
@@ -307,15 +268,9 @@ $('#hideh4').click(function() {
 
   <script>
 
-$('#showhide5').hide(2600, function() {});
-
-
-$('#showh5').click(function() {
-  $('#showhide5').show('slow', function() {});
-});
-
-$('#hideh5').click(function() {
-  $('#showhide5').hide('slow', function() {});
+$('.show_hide4').click(function(){
+    $("#showhide4").toggle( "slow");
+    $(this).val( $(this).val() == 'Show answer' ? 'Hide answer' : 'Show answer' );
 });
 </script>
 
